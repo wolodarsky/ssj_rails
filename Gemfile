@@ -6,6 +6,8 @@ ruby "2.2.0"
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# include the redis gem for ember deploys
+gem 'redis'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,5 +37,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Used to store secrets keys that are needed for development and match production
+  gem 'dotenv-rails'
 end
 
