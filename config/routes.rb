@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :product_variants
   end
 
+  resources :product_variants
+
   resources :stores
 
   # The priority is based upon order of creation: first created -> highest priority.
