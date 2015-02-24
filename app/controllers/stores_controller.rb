@@ -5,11 +5,14 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     @stores = Store.all
+    render :json => @stores
   end
 
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @store = Store.find(params[:id])
+    render :json => @store
   end
 
   # GET /stores/new
