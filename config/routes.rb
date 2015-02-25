@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  scope '/api/v1' do
+    resources :products, :product_variants, :stores
+  end
+
   resources :products do
     resources :product_variants
   end
