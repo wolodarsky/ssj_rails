@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope '/api/v1' do
     resources :products, :product_variants, :stores
+    get :csrf, to: 'csrf#index'
   end
 
   resources :products do
