@@ -46,7 +46,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       if @store.update(store_params)
         format.html { redirect_to @store, notice: 'Store was successfully updated.' }
-        format.json { render :show, status: :ok, location: @store }
+        format.json { render :json => @store, status: :ok, location: @store }
       else
         format.html { render :edit }
         format.json { render json: @store.errors, status: :unprocessable_entity }
