@@ -5,11 +5,14 @@ class ProductVariantsController < ApplicationController
   # GET /product_variants.json
   def index
     @product_variants = ProductVariant.all
+    render :json => @product_variants
   end
 
   # GET /product_variants/1
   # GET /product_variants/1.json
   def show
+    @product_variants = ProductVariant.find(params[:id])
+    render :json => @product_variants
   end
 
   # GET /product_variants/new
