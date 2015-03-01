@@ -4,7 +4,7 @@ class IndexController < ApplicationController
     if manifest_id.blank?
       manifest_id = REDIS.get("ssj-ember:current")
     end
-    html = REDIS.get("ssj-ember:#{manifest_id}")
+    html = REDIS.get(manifest_id)
     render :text => html
   end
 end
