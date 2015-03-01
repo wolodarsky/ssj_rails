@@ -5,19 +5,21 @@ Rails.application.routes.draw do
     get :csrf, to: 'csrf#index'
   end
 
-  resources :products do
-    resources :product_variants
-  end
+  # resources :products do
+  #   resources :product_variants
+  # end
 
-  resources :product_variants
+  # resources :product_variants
 
-  resources :stores
+  # resources :stores
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#index'
+
+  get '*path', to: 'index#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
