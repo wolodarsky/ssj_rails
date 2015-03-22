@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   scope '/api/v1' do
     resources :products, :product_variants, :stores
     get :csrf, to: 'csrf#index'
