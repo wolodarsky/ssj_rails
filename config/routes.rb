@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :stores
+
   scope '/api/v1' do
     resources :products, :product_variants, :stores
     get :csrf, to: 'csrf#index'
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
 
   # resources :product_variants
 
-  # resources :stores
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
