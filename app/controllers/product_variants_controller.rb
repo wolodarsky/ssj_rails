@@ -1,5 +1,6 @@
 class ProductVariantsController < ApplicationController
   before_action :set_product_variant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /product_variants
   # GET /product_variants.json
