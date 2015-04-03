@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
 
-  resources :stores
+  # resources :stores
 
   scope '/api/v1' do
     resources :products, :product_variants, :stores
