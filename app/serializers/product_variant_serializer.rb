@@ -3,6 +3,6 @@ class ProductVariantSerializer < ActiveModel::Serializer
 
   def options
     # AMS locking on hstore, returning the object to override
-    object
+    object.options
   end
 end
