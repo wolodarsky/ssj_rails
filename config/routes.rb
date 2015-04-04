@@ -1,11 +1,28 @@
 Rails.application.routes.draw do
-  resources :stores
+
+  # devise_for :users
+
+  # resources :stores
+
+  scope '/api/v1' do
+    resources :products, :product_variants, :stores
+    get :csrf, to: 'csrf#index'
+  end
+
+  # resources :products do
+  #   resources :product_variants
+  # end
+
+  # resources :product_variants
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'index#index'
+
+  get '*path', to: 'index#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

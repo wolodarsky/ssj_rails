@@ -1,5 +1,10 @@
 <h1>New Store</h1>
 
+<p><%= current_user %></p>
+<p><%= user_signed_in? %></p>
+
+<%= link_to 'Logout test', "/users/sign_out" %>
+
 <%= render 'form' %>
 
 <%= link_to 'Back', stores_path %>

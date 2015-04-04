@@ -1,15 +1,19 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /stores
   # GET /stores.json
   def index
     @stores = Store.all
+    render :json => @stores
   end
 
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @store = Store.find(params[:id])
+    render :json => @store
   end
 
   # GET /stores/new
@@ -29,7 +33,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       if @store.save
         format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render :show, status: :created, location: @store }
+        format.json { render :json => @store, status: :created, location: @store }
       else
         format.html { render :new }
         format.json { render json: @store.errors, status: :unprocessable_entity }
@@ -43,7 +47,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       if @store.update(store_params)
         format.html { redirect_to @store, notice: 'Store was successfully updated.' }
-        format.json { render :show, status: :ok, location: @store }
+        format.json { render :json => @store, status: :ok, location: @store }
       else
         format.html { render :edit }
         format.json { render json: @store.errors, status: :unprocessable_entity }
