@@ -21,6 +21,8 @@ gem "active_model_serializers", "~> 0.8.0"
 
 gem "devise"
 
+gem 'newrelic_rpm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
