@@ -2,7 +2,6 @@ class SessionsController < Devise::SessionsController
   respond_to :html, :json
 
   def create
-    logger.debug params
     super do |user|
       if request.format.json?
         data = {

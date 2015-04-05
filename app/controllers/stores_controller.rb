@@ -6,7 +6,6 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    logger.debug params
     @stores = Store.all
     render :json => @stores
   end
