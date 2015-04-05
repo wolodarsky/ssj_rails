@@ -1,10 +1,12 @@
 class StoresController < ApplicationController
+  before_filter :authenticate_user_from_token!, except: [:index, :show]
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /stores
   # GET /stores.json
   def index
+    logger.debug params
     @stores = Store.all
     render :json => @stores
   end
@@ -74,5 +76,16 @@ class StoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
       params.require(:store).permit(:name, :address_1, :address_2, :city, :state, :zipcode, :phone, :url)
+    end
+
+    def authenticate_user_from_token!
+      authenticate_with_http_token do |token, options|
+        user_email = options[:email].presence
+        user = user_email && User.find_by_email(user_email)
+
+        if user && Devise.secure_compare(user.authentication_token, token)
+          sign_in user, store: false
+        end
+      end
     end
 end
