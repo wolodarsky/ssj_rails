@@ -16,6 +16,10 @@ one:
   last_sign_in_at: 2015-04-05 06:34:35
   current_sign_in_ip: 1.2.3.4
   last_sign_in_ip: 1.2.3.4
+  confirmation_token: string
+  confirmed_at: 2015-04-05 06:34:35
+  confirmation_sent_at: 2015-04-05 06:34:35
+  unconfirmed_email: string
   admin: false
 
 two:
@@ -30,4 +34,8 @@ two:
   last_sign_in_at: 2015-04-05 06:34:35
   current_sign_in_ip: 1.2.3.4
   last_sign_in_ip: 1.2.3.4
+  confirmation_token: string
+  confirmed_at: 2015-04-05 06:34:35
+  confirmation_sent_at: 2015-04-05 06:34:35
+  unconfirmed_email: string
   admin: false
