@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+    def verify_user_is_admin!
+      if !current_user.try(:admin?)
+        render json: { error: 'You are not permitted to perform this action' }, status: :unauthorized
+      end
+    end
 end
