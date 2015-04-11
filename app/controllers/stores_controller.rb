@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_filter :authenticate_user_from_token!, except: [:index, :show]
+  before_filter :verify_user_is_admin!, except: [:index, :show]
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
