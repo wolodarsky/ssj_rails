@@ -48,5 +48,10 @@ group :development, :test do
 
   # Used to store secrets keys that are needed for development and match production
   gem 'dotenv-rails'
+
+  # auto run tests
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'minitest-reporters'
 end
 
