@@ -20,11 +20,11 @@ Rails.application.configure do
   # Change mail delivery to :smtp
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "sarahsafavijewelry.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
+    address: ENV["MAIL_ADDRESS"],
+    port: ENV["MAIL_PORT"],
+    domain: ENV["MAIL_DOMAIN"],
+    authentication: ENV["MAIL_AUTHENTICATION"],
+    enable_starttls_auto: ENV["MAIL_STARTTLS"],
     user_name: ENV["MAIL_USER"],
     password: ENV["MAIL_PASSWORD"]
   }
