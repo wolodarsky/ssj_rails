@@ -53,7 +53,7 @@ class StoresController < ApplicationController
   # DELETE /stores/1.json
   def destroy
     @store.destroy
-    format.json { head :no_content }
+    render json: {}
   end
 
   private
