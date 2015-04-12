@@ -67,14 +67,17 @@ Rails.application.configure do
   # Change mail delivery to :smtp
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV["MAIL_ADDRESS"],
-    port: ENV["MAIL_PORT"],
-    domain: ENV["MAIL_DOMAIN"],
-    authentication: ENV["MAIL_AUTHENTICATION"],
-    enable_starttls_auto: ENV["MAIL_STARTTLS"],
-    user_name: ENV["MAIL_USER"],
-    password: ENV["MAIL_PASSWORD"]
+    address: 'smtp.sendgrid.net',
+    port: '587',
+    authentication: :plain,
+    user_name:  ENV['SENDGRID_USERNAME'],
+    password:  ENV['SENDGRID_PASSWORD'],
+    domain: 'heroku.com',
+    enable_starttls_auto: true
   }
+
+  # mailer setup, settting up as suggested by devise
+  config.action_mailer.default_url_options = { host: ENV["ACTION_MAILER_HOST"] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
