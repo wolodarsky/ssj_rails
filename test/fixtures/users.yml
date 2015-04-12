@@ -4,7 +4,7 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+regular:
   email: one@user.com
   encrypted_password: <%= Devise.bcrypt(User, 'password') %>
   authentication_token: d01293dm1o32id0
@@ -22,7 +22,7 @@ one:
   unconfirmed_email: string
   admin: false
 
-two:
+admin:
   email: two@user.com
   encrypted_password: <%= Devise.bcrypt(User, 'password') %>
   authentication_token: d01293dm1o32id0
@@ -38,4 +38,4 @@ two:
   confirmed_at: 2015-04-05 06:34:35
   confirmation_sent_at: 2015-04-05 06:34:35
   unconfirmed_email: string
-  admin: false
+  admin: true

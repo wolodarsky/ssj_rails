@@ -3,7 +3,7 @@ require 'test_helper'
 class ProductVariantsControllerTest < ActionController::TestCase
   setup do
     @product_variant = product_variants(:one)
-    @user = users(:one)
+    @user = users(:regular)
   end
 
   test "should get index" do
