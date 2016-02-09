@@ -1,5 +1,6 @@
 class IndexController < ApplicationController
   def index
+    response.headers["Strict-Transport-Security"] = 'max-age=0'
     redirect_to("https://sarahsafavijewelry.squarespace.com")
     #manifest_id = params[:manifest_id]
     #if manifest_id.blank?
